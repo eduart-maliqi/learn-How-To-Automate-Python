@@ -1,0 +1,44 @@
+🧠 Python Module: os & shutil
+📂 os – Operating System Funktionen
+
+→ Arbeiten mit Dateien, Ordnern und Pfaden.
+
+Wichtige Befehle:
+
+os.listdir(pfad) → listet alle Dateien/Ordner im Verzeichnis
+
+os.path.join(a, b) → verbindet zwei Pfadteile korrekt
+
+os.path.isdir(pfad) → prüft, ob etwas ein Ordner ist
+
+os.path.splitext(dateiname) → trennt Dateiname & Endung → (name, .endung)
+
+os.makedirs(pfad, exist_ok=True) → erstellt Ordner (kein Fehler, wenn vorhanden)
+
+Beispiel:
+
+import os
+print(os.listdir("C:/Users"))
+
+🚚 shutil – Dateioperationen
+
+→ Dateien oder ganze Ordner verschieben, kopieren oder löschen.
+
+Wichtige Befehle:
+
+shutil.move(src, dst) → verschiebt Datei/Ordner
+
+shutil.copy(src, dst) → kopiert Datei
+
+shutil.rmtree(pfad) → löscht Ordner mit Inhalt
+
+Beispiel:
+
+import shutil
+shutil.move("bild.jpg", "Bilder/bild.jpg")
+
+🔑 Kurz zusammengefasst:
+
+os → Suchen, Prüfen, Pfade bauen
+
+shutil → Verschieben, Kopieren, Löschen
