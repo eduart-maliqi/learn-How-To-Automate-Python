@@ -2,12 +2,12 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 import random, string, os
 
-# ---------- Konfiguration ----------
-VAULT_FILE = "passwoerter.txt"
-SAFE_PUNCT = "-_:;.,/"  # nur diese Sonderzeichen zulassen
+
+VAULT_FILE = "passwords.txt"
+SAFE_PUNCT = "-_:;.,/" 
 CHARSET = string.ascii_letters + string.digits + SAFE_PUNCT
 
-# ---------- Logik ----------
+
 def generate_password(length: int):
     chars = random.choices(CHARSET, k=length)
     return "".join(chars)
@@ -26,7 +26,7 @@ def read_entries(file_path=VAULT_FILE):
     with open(file_path, "r", encoding="utf-8") as f:
         return [line.strip() for line in f if line.strip()]
 
-# ---------- GUI ----------
+# ---------- GUI ---------- = KI generiert
 root = tk.Tk()
 root.title("Password Manager (Mini)")
 root.resizable(False, False)

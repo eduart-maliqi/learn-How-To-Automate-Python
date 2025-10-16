@@ -28,16 +28,25 @@ Automatic file sorting by categories:
 - Uncategorized files go to the "Sonstiges" (Other) folder
 
 ### 2. 🔐 Password Manager (`password_manager.py`)
-Command-line based password manager:
+Enhanced command-line based password manager with advanced features:
 - **Password Generation**: Secure, random passwords with configurable length
-- **Storage**: Local storage in `passwoerter.txt`
-- **Display**: Overview of all saved entries
+- **Input Validation**: Ensures password length is ≥ 1 with user-friendly error messages
+- **Duplicate Detection**: Checks for existing labels and prompts for overwrite confirmation
+- **Upsert Functionality**: Updates existing entries or creates new ones seamlessly
+- **Storage**: Local storage in `passwords.txt` with UTF-8 encoding
 - **Character Set**: Letters, numbers, and safe special characters (`-_:.`)
+- **Type Hints**: Fully typed functions for better code quality
 
 **Menu Options:**
-- [1] Create new entry
+- [1] Create new entry (with duplicate check and validation)
 - [2] Show all passwords
 - [0] Exit program
+
+**Key Features:**
+- Smart duplicate handling - warns before overwriting existing entries
+- Robust input validation for password length
+- Clean code structure with docstrings
+- Error handling for missing files
 
 ### 3. 🖥️ Password Manager GUI (`password_gui.py`)
 Graphical user interface for the password manager using Tkinter:
@@ -83,6 +92,19 @@ python password_manager.py
 ```
 Follow the menu instructions for password management.
 
+**Enhanced Features:**
+- **Duplicate Detection**: The manager checks if a label already exists and asks for confirmation before overwriting
+- **Input Validation**: Ensures password length is at least 1 character
+- **Smart Storage**: Uses `passwords.txt` for persistent storage
+- **Error Messages**: Clear, user-friendly feedback for invalid inputs
+
+**Example Usage:**
+1. Choose option `[1]` to create a new password
+2. Enter desired password length (minimum 1)
+3. Enter a label/service name
+4. If the label exists, choose whether to overwrite (y/n)
+5. Your generated password will be displayed and saved
+
 ### Password Manager (GUI)
 ```bash
 python password_gui.py
@@ -90,9 +112,10 @@ python password_gui.py
 The graphical interface opens automatically.
 
 **Tips:**
-- Minimum length: 4 characters (recommended: 12+ characters)
-- Passwords are saved in `passwoerter.txt`
-- Use the copy function for easy pasting
+- Minimum length: 1 character (recommended: 12+ characters for security)
+- Passwords are saved in `passwords.txt` (updated from previous version)
+- Use the copy function in GUI for easy pasting
+- CLI prevents accidental overwrites with confirmation prompts
 
 ## 📂 Project Structure
 
@@ -100,9 +123,9 @@ The graphical interface opens automatically.
 learn-How-To-Automate-Python/
 │
 ├── File-organizer.py               # Automatic file organization
-├── password_manager.py              # CLI Password Manager
+├── password_manager.py              # CLI Password Manager (with duplicate detection)
 ├── password_gui.py                  # GUI Password Manager
-├── passwoerter.txt                 # Saved passwords (created automatically)
+├── passwords.txt                    # Saved passwords (created automatically)
 ├── python_os_shutil_notes.txt      # Notes on os/shutil modules
 ├── password_manager_cli_notes.txt  # Notes on CLI password manager concepts
 ├── README.md                        # This file
@@ -116,10 +139,10 @@ learn-How-To-Automate-Python/
 
 ## 🛠️ Technologies
 
-- **Python 3**: Main programming language
+- **Python 3**: Main programming language with type hints
 - **os & shutil**: File system operations
 - **tkinter**: GUI framework (Python Standard Library)
-- **random & string**: Password generation
+- **random & string**: Secure password generation
 
 ## 🔮 Future Enhancements
 
@@ -128,8 +151,10 @@ learn-How-To-Automate-Python/
 - [ ] Undo function for file organization
 - [ ] Password strength analysis
 - [ ] Search function in Password Manager
-- [ ] Export/Import of passwords
 - [ ] Integration of AI features
+- [x] Duplicate label detection with overwrite confirmation
+- [x] Input validation for password length
+- [x] Type hints for better code maintainability
 
 ## ⚠️ Security Notice
 
